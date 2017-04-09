@@ -27,7 +27,7 @@ class WebHook extends MY_Controller {
             echo $challenge;
         }
         echo $file = realpath(APPPATH . '../' . '/response.txt');
-        //file_put_contents($file, 'OK');
+        file_put_contents($file, 'OK time : => ' . time());
         if ($this->input->post()) {
             file_put_contents($file, json_encode($this->input->post()));
         }
