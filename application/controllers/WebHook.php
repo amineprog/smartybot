@@ -28,7 +28,7 @@ class WebHook extends MY_Controller {
         }
 
         if ($this->input->post()) {
-            file_put_contents('response.txt', json_encode($this->input->post()));
+            file_put_contents(APPPATH . 'response.txt', json_encode($this->input->post()));
         }
     }
 
