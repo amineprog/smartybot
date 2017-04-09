@@ -26,6 +26,10 @@ class WebHook extends MY_Controller {
         if ($hub_verify_token === $verify_token) {
             echo $challenge;
         }
+        
+        if($this->input->post()){
+            write_file('response.txt', $this->input->post());
+        }
     }
 
 }
