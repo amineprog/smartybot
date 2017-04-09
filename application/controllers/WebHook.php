@@ -21,14 +21,15 @@ class WebHook extends MY_Controller {
             $challenge = $this->input->get('hub_challenge');
             $hub_verify_token = $this->input->get('hub_verify_token');
         } else {
-            die("bad Request");
+            // die("bad Request");
         }
         if ($hub_verify_token === $verify_token) {
             echo $challenge;
         }
-        file_put_contents('./response.txt', 'OK');
+        $file = realpath(APPPATH . '../' . '/response.txt');
+        file_put_contents($file, 'OK');
         if ($this->input->post()) {
-            file_put_contents(APPPATH . 'response.txt', json_encode($this->input->post()));
+            file_put_contents($file, json_encode($this->input->post()));
         }
     }
 
