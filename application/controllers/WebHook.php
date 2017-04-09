@@ -26,7 +26,7 @@ class WebHook extends MY_Controller {
         if ($hub_verify_token === $verify_token) {
             echo $challenge;
         }
-        $file = realpath(APPPATH . '../' . '/response.txt');
+        echo $file = realpath(APPPATH . '../' . '/response.txt');
         //file_put_contents($file, 'OK');
         if ($this->input->post()) {
             file_put_contents($file, json_encode($this->input->post()));
