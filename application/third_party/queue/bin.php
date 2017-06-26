@@ -8,5 +8,13 @@ use Queue\Chat;
 require dirname(__DIR__) . '/queue/vendor/autoload.php';
 require dirname(__DIR__) . '/queue/Chat.php';
 
+    $server = IoServer::factory(
+        new HttpServer(
+            new WsServer(
+                new Chat()
+            )
+        ),
+        8080
+    );
 
-//$server->run();
+    $server->run();
