@@ -14,14 +14,6 @@ class Welcome extends CI_Controller {
         //$this->load->view('welcome_message');
         echo "<pre>";
 
-        $server = IoServer::factory(
-                        new HttpServer(
-                        new WsServer(
-                        new Chat()
-                        )
-                        ), 8080
-        );
-        var_dump($server);
         echo "</pre>";
     }
 
