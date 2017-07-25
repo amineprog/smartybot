@@ -30,7 +30,7 @@ class WebHook extends MY_Controller {
         $input = json_decode(file_get_contents('php://input'), true);
 
         echo $file = realpath(APPPATH . '../' . '/response.txt');
-        file_put_contents($file, $input);
+        file_put_contents($file, json_encode($input));
         if ($this->input->post()) {
             file_put_contents($file, json_encode($this->input->post()));
         }
